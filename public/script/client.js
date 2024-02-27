@@ -1,5 +1,6 @@
 var socket = io();
 
+// Declaração de variaveis
 const usernameInput = document.querySelector("#username");
 const messageInput = document.querySelector("#message");
 const sendButton = document.querySelector("#send");
