@@ -28,6 +28,6 @@ io.on("connection", (socket) =>{
     socket.on('chat message', (data) => {
         // console.log(`Mensagem recebida servidor: ${data}`); //recebe os dados da mensagem.
         // io.emit('chat message', data); //envia para todos os usuarios conectados os dados da mensagem.
-        socket.broadcast.emit('chat message', data); //envia para todos os usuarios conectados exceto o que enviou.
+        // socket.broadcast.emit('chat message', data); //envia para todos os usuarios conectados exceto o que enviou.
     });
 });

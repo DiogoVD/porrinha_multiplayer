@@ -1,11 +1,23 @@
 input{
+    width: 140px;
+    height: 25px;
+    text-align: center;
+}
+
+button{
     width: 100px;
+    height: 25px;
+    text-align: center;
+    text-transform: lowercase;
 }
 
 .container{
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    background-color: greenyellow;
 }
 
 .tela_login{
@@ -20,6 +32,7 @@ input{
     flex-direction: column;
     margin-top: 30px;
     align-items: center;
+    text-transform: capitalize;
 }
 
 .tela_palpite{
@@ -37,4 +50,5 @@ input{
 
 .list_palpites{
     margin-left: 20px;
+    text-transform: capitalize;
 }

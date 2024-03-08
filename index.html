@@ -4,23 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PORRINHA MULTIPLAYER</title>
+
+<!-- Estilos CSS -->
     <link rel="stylesheet" href="/public/style/reset.css">
     <link rel="stylesheet" href="/public/style/main.css">
+
+<!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <h2>PORRINHA</h2>
         <div class="tela_login" id="login">
-            <input type="text" id="text_login"><br>
-            <button id="btn_login">LOGIN</button>
+            <input type="text" id="text_login" value="seu nome"><br>
+            <button id="btn_login" onclick="f_palito()">LOGIN</button>
         </div>
-        <div class="tela_palitos">
-            <span id="num_jogadores">jogadores: 3</span><br>
+        <div class="tela_palitos" id="t_palito">
+            <span id="num_jogadores">jogadores ativos: 3</span><br>
+            <h3>Palitos</h3><br>
             <input type="number" id="num_palitos"><br>
-            <button id="btn_palitos">ENVIAR</button>
+            <button id="btn_palitos" onclick="f_palpite()">ENVIAR</button>
         </div>
-        <div class="tela_palpite">
+        <div class="tela_palpite" id="t_palpite">
             <div class="jog_palpite">
+                <h3>Palpite</h3><br>
                 <input type="number" id="palpite"><br>
                 <button id="btn_palpite">ENVIAR</button>
             </div>
