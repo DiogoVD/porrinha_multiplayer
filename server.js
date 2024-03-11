@@ -7,6 +7,12 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
+// Variaveis
+const todosPalitos = [];
+const todosPlayers = [];
+let usersConectados = 0;
+
+
 // definindo rotas
 app.use("/public", express.static("public"));
 app.get('/', function (req, res) {
@@ -20,12 +26,21 @@ server.listen(3000, () =>{
 
 io.on("connection", (socket) =>{
     console.log("Usuário conectado");
+    usersConectados++;
+    io.emit('userconected message', usersConectados);
 
     socket.on('disconnect', () =>{
         console.log("Usuário desconectado");
+        usersConectados--;
+        io.emit('userConected message', usersConectados);
     });
 
-    socket.on('chat message', (data) => {
+    socket.on('palitos message', (data) => {
+        todosPalitos.push(data.palitos);
+        todosPlayers.push(data.nome);
+
+        console.log(data);
+        console.log(data.nome);
         // console.log(`Mensagem recebida servidor: ${data}`); //recebe os dados da mensagem.
         // io.emit('chat message', data); //envia para todos os usuarios conectados os dados da mensagem.
         // socket.broadcast.emit('chat message', data); //envia para todos os usuarios conectados exceto o que enviou.

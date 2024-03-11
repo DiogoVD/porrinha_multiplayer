@@ -18,11 +18,11 @@
     <div class="container">
         <h2>PORRINHA</h2>
         <div class="tela_login" id="login">
-            <input type="text" id="text_login" value="seu nome"><br>
+            <input type="text" id="name_login" placeholder="seu nome"><br>
             <button id="btn_login" onclick="f_palito()">LOGIN</button>
         </div>
         <div class="tela_palitos" id="t_palito">
-            <span id="num_jogadores">jogadores ativos: 3</span><br>
+            <span id="num_jogadores">jogadores ativos: </span><br>
             <h3>Palitos</h3><br>
             <input type="number" id="num_palitos"><br>
             <button id="btn_palitos" onclick="f_palpite()">ENVIAR</button>
@@ -42,7 +42,8 @@
         </div>
     </div>
 
-    <script src="/public/script/client.js"></script>
-    <script src="/public/script/engine.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./public/script/client.js"></script>
+    <script src="./public/script/engine.js"></script>
 </body>
 </html>
