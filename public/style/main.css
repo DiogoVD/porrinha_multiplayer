@@ -52,3 +52,7 @@ button{
     margin-left: 20px;
     text-transform: capitalize;
 }
+
+.list_palpites > li{
+    margin-top: 5px;
+}

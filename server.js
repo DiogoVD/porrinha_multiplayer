@@ -27,22 +27,47 @@ server.listen(3000, () =>{
 io.on("connection", (socket) =>{
     console.log("Usuário conectado");
     usersConectados++;
-    io.emit('userconected message', usersConectados);
+    const userJson = `{"qtdUser":"${usersConectados}"}`;
+    const dataUser = JSON.parse(userJson);
+    // console.log(dataUser);
+    io.emit('userConected message', dataUser);
 
+    // usuarios desconectados
     socket.on('disconnect', () =>{
         console.log("Usuário desconectado");
         usersConectados--;
-        io.emit('userConected message', usersConectados);
+        const userJson = `{"qtdUser":"${usersConectados}"}`;
+        const dataUser = JSON.parse(userJson);
+        // console.log(dataUser);
+        io.emit('userConected message', dataUser);
     });
 
+    // recebimento dos dados de palitos e nomes
     socket.on('palitos message', (data) => {
+        
         todosPalitos.push(data.palitos);
         todosPlayers.push(data.nome);
 
-        console.log(data);
-        console.log(data.nome);
-        // console.log(`Mensagem recebida servidor: ${data}`); //recebe os dados da mensagem.
-        // io.emit('chat message', data); //envia para todos os usuarios conectados os dados da mensagem.
-        // socket.broadcast.emit('chat message', data); //envia para todos os usuarios conectados exceto o que enviou.
+        // console.log(todosPalitos);
+        // console.log(todosPlayers);
+
+        const json = `{"players":"${todosPlayers}"}`;
+        const dataUser = JSON.parse(json);
+        io.emit('atualizaTabelaUsers message', dataUser);
+    
     });
+
+
+    // socket.on('palitos message', (data) => {
+        
+    //     todosPalitos.push(data.palitos);
+    //     todosPlayers.push(data.nome);
+
+    //     console.log(todosPalitos);
+    //     console.log(todosPlayers);
+    //     // console.log(`Mensagem recebida servidor: ${data}`); //recebe os dados da mensagem.
+    //     // io.emit('chat message', data); //envia para todos os usuarios conectados os dados da mensagem.
+    //     // socket.broadcast.emit('chat message', data); //envia para todos os usuarios conectados exceto o que enviou.
+    // });
+
 });
